@@ -3,8 +3,8 @@ import AddUser from './components/AddUser';
 
 function App() {
   return (
-    <div>
-      <AddUser />
+    <div className='bg-black h-screen flex items-center justify-center'>
+      <AddUser/>
     </div>
   );
 }
