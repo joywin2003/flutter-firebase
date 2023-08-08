@@ -3,7 +3,7 @@ import AddUser from './components/AddUser';
 import { useState } from 'react';
 import Cards from './UI/Cards';
 import UsersList from './components/UsersList';
-
+import ErrorModal from './components/ErrorModal';
 function App() {
   const [usernameInput, setUsernameInput] = useState('');
   const [ageInput, setAgeInput] = useState('');
@@ -35,6 +35,7 @@ function App() {
   return (
     <>
     <div className='flex flex-col bg-black h-screen items-center'>
+    <ErrorModal title="Invalid Age" message="Please enter a valid age"></ErrorModal>
       <AddUser 
       onSubmut = {handleSubmit}
       username = {usernameInput}
