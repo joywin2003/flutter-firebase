@@ -1,5 +1,5 @@
 import Cards from "../UI/Cards";
-
+import Button from "../UI/Button";
 function AddUser(props) {
     return (
             <Cards>
@@ -28,12 +28,7 @@ function AddUser(props) {
                     value = {props.age}
                     onChange = {props.handleAgeChange}
                     />
-                <button
-                    type="submit"
-                    id="submit-btn"
-                    className="bg-blue-700 border-2 rounded-xl my-2 p-2 text-white text-lg w-60">
-                    Add user
-                </button>
+                <Button type="submit" message="Add User" />
             </form>
         </Cards>
     );

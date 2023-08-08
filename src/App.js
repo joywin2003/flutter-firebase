@@ -13,7 +13,7 @@ function App() {
     if(ageInput<0){
       console.log("Age cannot be negative");
     }
-    else if(usernameInput.length == 0 || ageInput.length ==0){
+    else if(usernameInput.trim().length == 0 || ageInput.trim().length ==0){
       console.log("Username and age cannot be empty");
     }
     else{
