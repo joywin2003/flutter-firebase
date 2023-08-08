@@ -8,17 +8,17 @@ function App() {
   const [usernameInput, setUsernameInput] = useState('');
   const [ageInput, setAgeInput] = useState('');
   const [users, setUsers] = useState([]);
+  const [error, setError] = useState();
   function handleSubmit(e){
     e.preventDefault();
     if(ageInput<0){
-      console.log("Age cannot be negative");
+      setError({title:'Invalid age', message:'Please enter a valid age > 0'})
     }
     else if(usernameInput.trim().length == 0 || ageInput.trim().length ==0){
-      console.log("Username and age cannot be empty");
+      setError({title:'Invalid input', message:'Please enter a valid name'})
     }
     else{
       setUsers([...users,`${usernameInput}(${ageInput})`]);
-      console.log(users);
     }
     setUsernameInput('');
     setAgeInput('');
@@ -31,11 +31,14 @@ function App() {
     setAgeInput(e.target.value);
     console.log("Age: ", e.target.value);
   }
+  function handleError() {
+    setError(null);
+  }
 
   return (
     <>
     <div className='flex flex-col bg-black h-screen items-center'>
-    <ErrorModal title="Invalid Age" message="Please enter a valid age"></ErrorModal>
+    {error && <ErrorModal title={error.title} message={error.message} onError={handleError}></ErrorModal> }
       <AddUser 
       onSubmut = {handleSubmit}
       username = {usernameInput}
