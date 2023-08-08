@@ -1,7 +1,7 @@
 import React from 'react';
 import AddUser from './components/AddUser';
 import { useState } from 'react';
-import Cards from './components/Cards';
+import Cards from './UI/Cards';
 import UsersList from './components/UsersList';
 
 function App() {
@@ -13,10 +13,15 @@ function App() {
     if(ageInput<0){
       console.log("Age cannot be negative");
     }
+    else if(usernameInput.length == 0 || ageInput.length ==0){
+      console.log("Username and age cannot be empty");
+    }
     else{
       setUsers([...users,`${usernameInput}(${ageInput})`]);
       console.log(users);
     }
+    setUsernameInput('');
+    setAgeInput('');
   }
   function handleUsernameChange(e) {
     setUsernameInput(e.target.value);

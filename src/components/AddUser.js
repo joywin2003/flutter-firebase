@@ -1,6 +1,8 @@
+import Cards from "../UI/Cards";
+
 function AddUser(props) {
     return (
-        <div className="flex rounded-2xl border-2 border-red-500 bg-white container p-20 mx-auto mt-10 w-2/6">
+            <Cards>
             <form onSubmit={props.onSubmut} className="">
                 <label
                     htmlFor="username"
@@ -33,7 +35,7 @@ function AddUser(props) {
                     Add user
                 </button>
             </form>
-        </div>
+        </Cards>
     );
 }
 
