@@ -1,15 +1,21 @@
 import React from 'react';
 import AddUser from './components/AddUser';
 import { useState } from 'react';
+import Cards from './components/Cards';
+import UsersList from './components/UsersList';
+
 function App() {
   const [usernameInput, setUsernameInput] = useState('');
   const [ageInput, setAgeInput] = useState('');
-
-
+  const [users, setUsers] = useState([]);
   function handleSubmit(e){
     e.preventDefault();
     if(ageInput<0){
       console.log("Age cannot be negative");
+    }
+    else{
+      setUsers([...users,`${usernameInput}(${ageInput})`]);
+      console.log(users);
     }
   }
   function handleUsernameChange(e) {
@@ -22,7 +28,8 @@ function App() {
   }
 
   return (
-    <div className='bg-black h-screen flex'>
+    <>
+    <div className='flex flex-col bg-black h-screen items-center'>
       <AddUser 
       onSubmut = {handleSubmit}
       username = {usernameInput}
@@ -30,7 +37,9 @@ function App() {
       handleUsernameChange = {handleUsernameChange}
       handleAgeChange = {handleAgeChange}
       />
+      {users.length>0 && <UsersList users={users}/>}
     </div>
+    </>
   );
 }
 

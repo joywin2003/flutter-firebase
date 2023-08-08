@@ -1,6 +1,6 @@
 function AddUser(props) {
     return (
-        <div className="flex-auto rounded-2xl border-2 border-red-500 bg-white container p-20 mx-auto mt-10 w-2/6 h-2/5">
+        <div className="flex rounded-2xl border-2 border-red-500 bg-white container p-20 mx-auto mt-10 w-2/6">
             <form onSubmit={props.onSubmut} className="">
                 <label
                     htmlFor="username"
